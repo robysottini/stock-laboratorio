@@ -1,0 +1,104 @@
+<section>  
+    <div class="row well well-sm col-md-12">
+
+        <form name="nuevoGuante" ng-submit="nuevoGuante.$valid && agregarGuante()" novalidate>
+            <br>
+            <div class="row">
+                <div class="col-md-4 col-md-offset-1">
+
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <label class="control-label">Nombre *</label>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control ng-pristine ng-invalid" ng-model="guante.nombre" required>
+                        </div>
+                    </div>
+                    
+                    <!-- select.js de Angular Strap -->
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <label class="control-label">Marca</label>
+                        </div>
+                        <div class="col-md-6">
+                            <button type="button" class="btn btn-default" 
+                                ng-model="guante.marca" 
+                                data-animation="am-fade" 
+                                data-html="1" 
+                                bs-options="grupoSanguineo.gru_id as grupoSanguineo.gru_nombre for grupoSanguineo in matrizGruposSanguineos" 
+                                placeholder="Elija una opción" 
+                                bs-select 
+                            >
+                            Action <span class="caret"></span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <label class="control-label">Libre de talco</label>
+                        </div>                        
+                        <div class="col-md-6">
+                            <div class="btn-group">
+                                <label class="btn btn-primary" ng-model="guante.talco" uib-btn-radio="'Si'">Sí</label>
+                                <label class="btn btn-primary" ng-model="guante.talco" uib-btn-radio="'No'">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <label class="control-label">Vencimiento</label>
+                        </div>
+                        <div class="col-md-6">
+                            <div ng-controller="GuanteDatepickerController">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" 
+                                        uib-datepicker-popup 
+                                        ng-model="guante.fecha_nacimiento" 
+                                        is-open="popup.abierto"
+                                        datepicker-options="opcionesDeFecha" 
+                                        date-disabled="desactivado(date, mode)" 
+                                        close-text="Cerrar" 
+                                    />
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-default" ng-click="abrir()">
+                                            <i class="glyphicon glyphicon-calendar"></i>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <label class="control-label">Lote</label>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control ng-pristine ng-invalid" ng-model="guante.lote">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <label class="control-label">Cantidad *</label>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control ng-pristine ng-invalid" ng-model="guante.cantidad" required>
+                        </div>
+                    </div>
+                    <br>
+
+                </div>
+            </div>
+            <br>
+
+            <div class="row">
+                <div class="col-md-4 col-md-offset-4">
+                    <input type="submit" value="Aceptar" class="btn btn-primary btn-block">
+                </div>
+            </div>
+        </form>
+    </div>
+</section>

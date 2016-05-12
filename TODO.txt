@@ -1,0 +1,5 @@
+TODO:
+
+Qué es registrar.
+Qué es VM.
+Qué es activate().
